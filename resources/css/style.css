@@ -1,0 +1,65 @@
+/* Define some color variables */
+:root {
+  --site-background: rgba(106, 123, 74, 1);
+  --material-background:  rgba(243, 229, 226, 1);
+  --woodsy-green: rgba(106, 123, 74, 1);
+  --off-white: rgba(243, 229, 226, 1);
+  --lemonade: rgba(253, 247, 1, 1);
+  --tree: rgba(105, 89, 65, 1);
+  --sky-blue: rgba(125, 179, 223, 1);
+}
+
+/* Universal styles */
+html {
+    font-size: 16px;
+    background-color: var(--site-background);
+    font-family: 'Oxygen', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Header section */
+header img {
+    width: 100%;    
+}
+
+/* Main section */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+main h4 {
+    font-size: 1rem;
+}
+
+main h5 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+    
+
+section {
+    background-color: var(--material-background);
+    max-width: 960px;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    color: var(--tree);
+    margin-bottom: 1rem;
+}
+
+p {
+    margin: 1rem 0;
+}
