@@ -1,8 +1,8 @@
 /* Define some color variables */
 :root {
-  --site-background: rgba(106, 123, 74, 1);
+  --site-background: rgba(90, 130, 74, 1);
   --material-background:  rgba(243, 229, 226, 1);
-  --woodsy-green: rgba(106, 123, 74, 1);
+  --woodsy-green: rgba(75, 123, 74, 1);
   --off-white: rgba(243, 229, 226, 1);
   --lemonade: rgba(253, 247, 1, 1);
   --tree: rgba(105, 89, 65, 1);
@@ -26,7 +26,39 @@ body {
 
 /* Header section */
 header img {
+    display: block;
     width: 100%;    
+}
+
+header {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+header .banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 900px;
+    position: absolute;
+    color: var(--woodsy-green);
+    top: 5%;
+    border-radius: 50px;
+    background-color: rgba(125, 179, 223, 0.8);
+}
+
+header h1, header h2 {
+    display: block;
+
+    font-size: 3rem;
+}
+
+header h1::first-letter, header h2::first-letter {
+    color: var(--lemonade);
+    font-size: 120%;
+    font-weight: bold;
 }
 
 /* Main section */
@@ -34,6 +66,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 1rem;
 }
 
 main h3 {
@@ -51,9 +84,9 @@ main h5 {
 }
     
 
-section {
+.blog-post {
     background-color: var(--material-background);
-    max-width: 960px;
+    width: 960px;
     padding: 1rem 2rem;
     border-radius: 25px;
     color: var(--tree);

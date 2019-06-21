@@ -1,35 +1,25 @@
-var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1mI0Prj20RwR-9bMV_wnmKgavspKl7jg6cvYrOLi61Fg/edit?usp=sharing';
+var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/19Gf6yHLQOSVqSuQ4UdOct7CxnO1pyD1E8ADG6N62Kfc/edit?usp=sharing';
 
 function init() {
 Tabletop.init( { key: publicSpreadsheetUrl,
                     callback: addToPage,
-                    simpleSheet: true } )
-}
-
-function logData(data, tabletop) {
-    console.log(data);
+                    simpleSheet: true,
+                wanted: ['BlogPosts'] } )
 }
 
 function addToPage(data, tabletop) {
     var div = document.getElementById('gdoc-content');
-    var pageName = getMeta("page-name");
     for (var i=0; i < data.length; i++) {
-        if (data[i].page === pageName) {
-            div.innerHTML += data[i].content;
-        }
+        var html = '<section class="blog-post">';
+            html += '<h3 class="post-title">' + data[i].title + '</h3>';
+            html += '<h4 class="post-author">Posted by ' + data[i].author + '</h4>';
+            html += '<h5 class="post-location">' + data[i].location + '</h5>'; 
+            html += '<h5 class="post-date">' + data[i].date + '</h5>';
+            html += '<div class="post-body">' + data[i].body + '</div>';
+            html += '</section>';
+        div.innerHTML += html;
     }
 }
 
-function getMeta(metaName) {
-    const metas = document.getElementsByTagName('meta');
-  
-    for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
-        return metas[i].getAttribute('content');
-      }
-    }
-  
-    return '';
-  }
   
 window.addEventListener('DOMContentLoaded', init)
