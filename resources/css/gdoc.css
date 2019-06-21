@@ -1,0 +1,53 @@
+/* Thanks to https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Your_first_HTML_form */ 
+/* Note sidebar width is fixed at 300px */
+form {
+  /* Just to center the form on the page */
+  margin: 0 auto;
+  width: 250px;
+  /* To see the outline of the form */
+  padding: 1em;
+  border: 1px solid green;
+  border-radius: 1em;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+  /* To make sure that all labels have the same size and are properly aligned */
+  display: block;
+  font-size: 1.2em;
+  font-family: sans-serif;
+  color: green;
+}
+
+input, select, button {
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  font: 1em sans-serif;
+
+  /* To give the same size to all text fields */
+  width: 240px;
+  box-sizing: border-box;
+
+  /* To harmonize the look & feel of text field border */
+  border: 1px solid green;
+  
+  padding: 5px;
+}
+
+input:focus {
+  /* To give a little highlight on active elements */
+  border-color: #000;
+}
+
+button {
+  /* This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+  font-size 1.5em;
+  border-radius: 5px;
+  background-color: LightGreen;
+}
+
+
