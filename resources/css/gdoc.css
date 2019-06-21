@@ -45,7 +45,7 @@ input:focus {
 button {
   /* This extra margin represent roughly the same space as the space
      between the labels and their text fields */
-  font-size 1.5em;
+  font-size: 1.5em;
   border-radius: 5px;
   background-color: LightGreen;
 }
