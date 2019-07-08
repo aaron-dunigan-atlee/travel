@@ -2,11 +2,28 @@
 :root {
   --site-background: rgba(90, 130, 74, 1);
   --material-background:  rgba(243, 229, 226, 1);
-  --woodsy-green: rgba(75, 123, 74, 1);
-  --off-white: rgba(243, 229, 226, 1);
-  --lemonade: rgba(253, 247, 1, 1);
-  --tree: rgba(105, 89, 65, 1);
+  --banner-background: rgba(243, 229, 226, 0.95);
+  --link: rgba(43, 151, 32, 1);
+  --visited-link: rgba(43, 151, 32, 1);
+  --text-accent: rgb(238, 255, 0);
+  --text: rgba(105, 89, 65, 1);
+  --text-banner: rgba(43, 151, 32, 1);
+
+/* Not currently used
   --sky-blue: rgba(125, 179, 223, 1);
+  --sky-blue: rgba(188, 253, 255, 1)
+  --woodsy-green: rgba(75, 123, 74, 1);
+  --accent: rgba(255, 195, 33, 1);
+  --lemonade: rgba(253, 247, 1, 1);
+
+   Coolors Exported Palette - coolors.co/ffc321-bcfdff-86ff6b-2b9720-343a1a 
+ RGB 
+$color1: rgba(255, 195, 33, 1); deep lemon
+$color2: rgba(188, 253, 255, 1); italian sky blue
+$color3: rgba(134, 255, 107, 1); mantis green
+$color4: rgba(43, 151, 32, 1); slimy green
+$color5: rgba(52, 58, 26, 1); pullman green
+*/
 }
 
 /* Universal styles */
@@ -22,6 +39,15 @@ html {
 body {
     line-height: 1.5;
     width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link);
+}
+
+a:visited {
+    color: var(--visited-link);
 }
 
 /* Header section */
@@ -43,22 +69,22 @@ header .banner {
     justify-content: space-around;
     width: 900px;
     position: absolute;
-    color: var(--woodsy-green);
+    color: var(--text-banner);
     top: 5%;
     border-radius: 50px;
-    background-color: rgba(125, 179, 223, 0.8);
+    background-color: var(--banner-background);
 }
 
 header h1, header h2 {
     display: block;
-
     font-size: 3rem;
 }
 
 header h1::first-letter, header h2::first-letter {
-    color: var(--lemonade);
+    color: var(--text-accent);
+    text-shadow: 1px 1px rgb(209, 224, 0);
     font-size: 120%;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 /* Main section */
@@ -89,7 +115,7 @@ main h5 {
     width: 960px;
     padding: 1rem 2rem;
     border-radius: 25px;
-    color: var(--tree);
+    color: var(--text);
     margin-bottom: 1rem;
 }
 
