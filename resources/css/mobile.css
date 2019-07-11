@@ -1,0 +1,42 @@
+/* Styles for mobile version of site. */
+@media only screen and (max-width: 1000px) {
+   
+    /* Header */
+    header .banner {
+        width: 90%;
+    }
+
+    header h1, header h2 {
+        font-size: 1rem;
+    }
+
+    /* Main */
+    main {
+        width: 100%;
+    }
+
+    .blog-post {
+        width: 100%;
+    }
+
+    .post-title {
+        margin: 0.5rem 1rem 0 1rem;
+        font-size: 1rem;
+    }
+    
+    .post-body {
+        margin: 0 1rem;
+        font-size: 0.7rem;
+    }
+
+    .post-author, .post-location, .post-date {
+        margin: 0 1rem;
+        font-size: 0.5rem;
+    }
+
+    .post-body img {
+        max-width: 100%;
+        height: auto;
+    }
+
+}

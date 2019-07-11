@@ -113,10 +113,17 @@ main h5 {
 .blog-post {
     background-color: var(--material-background);
     width: 960px;
-    padding: 1rem 2rem;
     border-radius: 25px;
     color: var(--text);
     margin-bottom: 1rem;
+}
+
+.post-title, .post-author, .post-location, .post-date, .post-body {
+    margin: 0 2rem;
+}
+
+.post-title {
+    margin-top: 1rem;
 }
 
 p {
