@@ -129,3 +129,8 @@ main h5 {
 p {
     margin: 1rem 0;
 }
+
+.post-body img {
+    max-width: 100%;
+    height: auto;
+}
