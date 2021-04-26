@@ -10,12 +10,15 @@ const messaging = firebase.messaging();
    })
    .then(function(token) {
      // print the token on the HTML page
-      const subscriptionJson = document.querySelector('.js-subscription-json');
+      const subscriptionJson = $('.js-subscription-json');
     
       const subscriptionDetails =
-        document.querySelector('.js-subscription-details');
+        $('.js-subscription-details');
 
-      subscriptionJson.textContent = "Device token is : " + token
+      subscriptionJson.text("Device token is : " + token)
+
+      $('#register').attr('href', 'https://script.google.com/a/macros/expungeamerica.com/s/AKfycbyVS92bx0gqSN05_Mw6sHC2JUvImleY_Ya3nWQ7iMJaPt5r5zsW/exec?page=subscribe&token=' + token)
+
       subscriptionDetails.classList.remove('is-invisible');
 
    })
