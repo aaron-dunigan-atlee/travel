@@ -77,6 +77,7 @@ function updateSubscriptionOnServer(token) {
     subscriptionDetails.removeClass('is-invisible');
     
   } else {
+    // No need to notify server: unsubscribed tokens are identified each time a notification is pushed
     subscriptionDetails.addClass('is-invisible');
   }
 }
@@ -109,12 +110,7 @@ function subscribeUser() {
 }
 
 function unsubscribeUser() {
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    if (subscription) {
-      return subscription.unsubscribe();
-    }
-  })
+  messaging.deleteToken()
   .catch(function(error) {
     console.log('Error unsubscribing', error);
   })
