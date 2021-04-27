@@ -2,8 +2,8 @@
 
 /*
 *
-*  Push Notifications codelab
-*  Copyright 2015 Google Inc. All rights reserved.
+*  Based on the Push Notifications codelab
+*  Which is Copyright 2015 Google Inc. All rights reserved.
 *
 *  Licensed under the Apache License, Version 2.0 (the "License");
 *  you may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@
 
 const applicationServerPublicKey = 'BN-Ot_XbPruAt5Xk-KCpLEkkpza2Y0WKc9BAkF6nwT6vITYQ0Wdo79VqZJfaZDZCKjXXByRh94r0iy-weEd5m98';
 
-const pushButton = document.querySelector('.js-push-btn');
+const pushButton = $('.js-push-btn');
 
 let isSubscribed = false;
 let swRegistration = null;
@@ -148,7 +148,7 @@ function initializeUI() {
 if ('serviceWorker' in navigator && 'PushManager' in window) {
   console.log('Service Worker and Push is supported');
 
-  navigator.serviceWorker.register('sw.js')
+  navigator.serviceWorker.register('scripts/firebase-messaging-sw.js')
   .then(function(swReg) {
     console.log('Service Worker is registered', swReg);
 
@@ -162,6 +162,5 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
   console.warn('Push messaging is not supported');
   pushButton.textContent = 'Push Not Supported';
 }
-
 
 
