@@ -63,39 +63,47 @@ function updateBtn() {
 }
 
 function updateSubscriptionOnServer(subscription) {
-  // TODO: Send subscription to application server
 
-  const subscriptionJson = document.querySelector('.js-subscription-json');
-  const subscriptionDetails =
-    document.querySelector('.js-subscription-details');
+  const subscriptionJson = $('.js-subscription-json');
+      
+  const subscriptionDetails = $('.js-subscription-details');
 
-  if (subscription) {
-    subscriptionJson.textContent = JSON.stringify(subscription);
-    subscriptionDetails.classList.remove('is-invisible');
+  if (token) {
+    subscriptionJson.text("Device token is : " + token)
+    $('#register').attr('href', 'https://script.google.com/a/macros/expungeamerica.com/s/AKfycbyVS92bx0gqSN05_Mw6sHC2JUvImleY_Ya3nWQ7iMJaPt5r5zsW/exec?page=subscribe&token=' + token)
+
+    subscriptionDetails.removeClass('is-invisible');
+    
   } else {
-    subscriptionDetails.classList.add('is-invisible');
+    subscriptionDetails.addClass('is-invisible');
   }
 }
 
 function subscribeUser() {
-  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
-  swRegistration.pushManager.subscribe({
-    userVisibleOnly: true,
-    applicationServerKey: applicationServerKey
+  messaging
+  .requestPermission()
+  .then(function () {
+    
+    console.log("Notification permission granted.");
+
+    // get the token in the form of promise
+    return messaging.getToken({
+      ServiceWorkerRegistration: swRegistration,
+      vapidKey: applicationServerPublicKey
+    })
   })
-  .then(function(subscription) {
-    console.log('User is subscribed.');
+  .then(function(token) {
+     console.log('User is subscribed.');
 
-    updateSubscriptionOnServer(subscription);
+     updateSubscriptionOnServer(token);
 
-    isSubscribed = true;
-
-    updateBtn();
   })
-  .catch(function(err) {
-    console.log('Failed to subscribe the user: ', err);
+  .catch(function (err) {
+  
+    console.log("Unable to get permission to notify.", err);
     updateBtn();
   });
+
 }
 
 function unsubscribeUser() {
