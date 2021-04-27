@@ -19,7 +19,7 @@ const messaging = firebase.messaging();
 
       $('#register').attr('href', 'https://script.google.com/a/macros/expungeamerica.com/s/AKfycbyVS92bx0gqSN05_Mw6sHC2JUvImleY_Ya3nWQ7iMJaPt5r5zsW/exec?page=subscribe&token=' + token)
 
-      subscriptionDetails.classList.remove('is-invisible');
+      subscriptionDetails.removeClass('is-invisible');
 
    })
    .catch(function (err) {
