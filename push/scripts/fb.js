@@ -1,3 +1,27 @@
+'use strict';
+
+let isSubscribed = false;
+let swRegistration = null;
+
+if ('serviceWorker' in navigator && 'PushManager' in window) {
+  console.log('Service Worker and Push is supported');
+
+  navigator.serviceWorker.register('firebase-messaging-sw.js')
+  .then(function(swReg) {
+    console.log('Service Worker is registered', swReg);
+
+    swRegistration = swReg;
+    initializeUI();
+  })
+  .catch(function(error) {
+    console.error('Service Worker Error', error);
+  });
+} else {
+  console.warn('Push messaging is not supported');
+  pushButton.textContent = 'Push Not Supported';
+}
+
+
 const messaging = firebase.messaging();
  messaging
    .requestPermission()
@@ -6,7 +30,10 @@ const messaging = firebase.messaging();
      console.log("Notification permission granted.");
 
      // get the token in the form of promise
-     return messaging.getToken()
+     return messaging.getToken({
+       ServiceWorkerRegistration: swRegistration,
+       vapidKey: 'BN-Ot_XbPruAt5Xk-KCpLEkkpza2Y0WKc9BAkF6nwT6vITYQ0Wdo79VqZJfaZDZCKjXXByRh94r0iy-weEd5m98'
+     })
    })
    .then(function(token) {
      // print the token on the HTML page
