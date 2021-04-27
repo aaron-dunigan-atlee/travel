@@ -27,6 +27,8 @@ const applicationServerPublicKey = 'BN-Ot_XbPruAt5Xk-KCpLEkkpza2Y0WKc9BAkF6nwT6v
 
 const pushButton = document.querySelector('.js-push-btn');
 
+const messaging = firebase.messaging();
+
 let isSubscribed = false;
 let swRegistration = null;
 
@@ -62,7 +64,7 @@ function updateBtn() {
   pushButton.disabled = false;
 }
 
-function updateSubscriptionOnServer(subscription) {
+function updateSubscriptionOnServer(token) {
 
   const subscriptionJson = $('.js-subscription-json');
       
@@ -137,11 +139,14 @@ function initializeUI() {
   });
 
   // Set the initial subscription value
-  swRegistration.pushManager.getSubscription()
-  .then(function(subscription) {
-    isSubscribed = !(subscription === null);
+  messaging.getToken({
+    ServiceWorkerRegistration: swRegistration,
+    vapidKey: applicationServerPublicKey
+  })
+  .then(function(token) {
+    isSubscribed = !(token === null);
 
-    updateSubscriptionOnServer(subscription);
+    updateSubscriptionOnServer(token);
 
     if (isSubscribed) {
       console.log('User IS subscribed.');
